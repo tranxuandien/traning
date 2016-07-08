@@ -15,6 +15,7 @@
 //    return view('welcome');
 //});
 //Route::get('/teacher', 'TeacherController@showAllTeacher');
+use App\Student;
 Route::get('/detail/{id}', array('as' => 'product','uses'=>'TeacherController@showAllStudentOfTeacher'));
 //Route::get('/home', function(){
 //    return view('home');
@@ -32,3 +33,7 @@ Route::resource('students','StudentsController');
 Route::get('/store', 'StudentsController@store');
 Route::get('/update', 'StudentsController@update');
 Route::get('/delete/{id}', 'StudentsController@delete');
+
+Route::get('/students/{id}/edit', [function($id){
+    return View::make('edit')->with('student',Student::find($id));
+}]);

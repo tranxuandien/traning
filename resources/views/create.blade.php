@@ -1,41 +1,19 @@
-{{--<!DOCTYPE html>--}}
-{{--<html lang="en">--}}
-{{--<head>--}}
-    {{--<meta charset="UTF-8">--}}
-    {{--<title>Form trong Laravel 5</title>--}}
-{{--</head>--}}
-{{--<body>--}}
-{{--<h1>Thêm mới Hoc Sinh</h1>--}}
-{{--<form method="get" action="http://localhost/quickstart/public/store">--}}
-{{--<label for="name">Tên sinh viên:</label>--}}
-{{--<input type="text" id="name" name="name">--}}
-{{--<label for="name">Mã số giáo viên:</label>--}}
-{{--<input type="" id="teacher_id" name="teacher_id" value="{{$teacherId}}">--}}
-{{--<input type="submit" value="Thêm mới">--}}
-{{--</form>--}}
-{{--</body>--}}
-{{--</html>--}}
-@extends('layouts.app')
-
-@section('content')
-    <div class="" xmlns="http://www.w3.org/1999/html">
-        <div class="row">
-            <div class="col-md-5 col-md-offset-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Welcome</div>
-
-                    <div class="panel-body">
-                        <h1>Thêm mới Hoc Sinh</h1>
-                        <form method="get" action="http://localhost/quickstart/public/store">
-                            <label for="name">Tên sinh viên:</label>
-                            <input type="text" id="name" name="name">
-                            <label for="name">Mã số giáo viên:</label>
-                            <input type="" id="teacher_id" name="teacher_id" value="{{$teacherId}}">
-                            <input type="submit" value="Thêm mới">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+@extends('layout2')
+@section('form')
+    <h1 class="container">Thêm mới Hoc Sinh</h1>
+    {!! Form::open(['url'=>'store','method'=>'get','class'=>'form']) !!}
+    <div class="form-group">
+        {!! Form::label('name','Tên sinh viên:',['class'=>'col-md-2 control-label']) !!}
     </div>
+    <div class="col-md-4">
+        {!! Form::text('name',null,['class'=>'form-control']) !!}
+    </div>
+    <div class="form-group">
+    {!! Form::label('teacher_id','Mã số giáo viên:',['class'=>'col-md-2 control-label']) !!}
+    </div>
+    <div class="col-md-2">
+    {!! Form::text('teacher_id',$teacherId,['class'=>'form-control']) !!}<br>
+    </div>
+    {!! Form::submit('Thêm mới',['class'=>'btn btn-primary']) !!}
+    {!! Form::close() !!}
 @endsection
